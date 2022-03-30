@@ -1,0 +1,17 @@
+{
+    "name": "lucas/virtual-store",
+    "description": "Ecommerce construido para um projeto integrador da faculdade usando clean architecture",
+    "autoload": {
+        "psr-4": {
+            "source\\": "src/"
+        },
+        "files": ["src/shared/config/database.php"]
+    },
+    "authors": [
+        {
+            "name": "Lucas Bogos",
+            "email": "bogoslucas1@gmail.com"
+        }
+    ],
+    "require": {}
+}
