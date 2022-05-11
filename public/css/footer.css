@@ -1,0 +1,16 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1d1d1f;
+    min-height: 200px;
+}
+
+.footer>p {
+    margin: 0 1em;
+    color: #aaa;
+}
+
+.footer p>a:hover {
+    color: #fff;
+}

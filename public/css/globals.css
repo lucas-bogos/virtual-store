@@ -1,0 +1,13 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #efefef;
+}
+
+h1 {
+    margin: 15px;
+}
+
+main {
+    min-height: 80vh;
+}

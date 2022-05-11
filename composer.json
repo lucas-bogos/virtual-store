@@ -5,13 +5,15 @@
         "psr-4": {
             "source\\": "src/"
         },
-        "files": ["src/shared/config/database.php"]
+        "files": [
+            "src/shared/config/database.php"
+        ]
     },
-    "authors": [
-        {
-            "name": "Lucas Bogos",
-            "email": "bogoslucas1@gmail.com"
-        }
-    ],
-    "require": {}
+    "authors": [{
+        "name": "Lucas Bogos",
+        "email": "bogoslucas1@gmail.com"
+    }],
+    "require": {
+        "phpmailer/phpmailer": "^6.6"
+    }
 }

@@ -8,7 +8,8 @@ use source\domain\valueObjects\Email;
 use source\domain\valueObjects\Name;
 use source\domain\valueObjects\Password;
 
-class User {
+class User
+{
   private Name $name;
   private Email $email;
   private Password $password;

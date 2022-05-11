@@ -6,7 +6,8 @@ namespace source\domain\valueObjects;
 
 use DomainException;
 
-final class Name {
+final class Name
+{
   private string $name;
 
   public function __construct(string $name)
@@ -15,7 +16,7 @@ final class Name {
       throw new DomainException("Name can't be empty");
     }
     if (strlen($name) > 255) {
-        throw new DomainException("Name '$name' must be less than 255 chars");
+      throw new DomainException("Name '$name' must be less than 255 chars");
     }
     $this->name = $name;
   }
