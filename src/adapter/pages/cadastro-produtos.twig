@@ -1,0 +1,141 @@
+{% extends 'layout-admin.twig' %}
+{% set breadcrumb = 'Cadastre seus produtos na loja' %}
+{% block content %}
+    {% if registed == true %}
+        <div class="d-flex justify-content-center align-items-center">
+        <span class="d-flex justify-content-center align-items-center alert alert-success">
+            Produto cadastrado no sistema com sucesso!
+        </span>
+        </div>
+    {% endif %}
+  <!-- Page Header Start -->
+  <div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center"
+      style="min-height: 200px;">
+      <h1 class="font-weight-semi-bold text-uppercase mb-3">
+        Cadastro de produtos
+      </h1>
+      <div class="d-inline-flex">
+        <p class="m-0">
+          <a style="color: #D19C97 !important;" href="/admin">Admin</a>
+        </p>
+        <p class="m-0 px-2">
+          &gt;
+        </p>
+        <p class="m-0">
+          {{ breadcrumb }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Page Header End -->
+    <!--Form Start-->
+    <div class="container-fluid mb-5 d-flex justify-content-center align-items-center">
+      <form method="POST" enctype="multipart/form-data">
+        <fieldset>
+        <legend>Adicione um novo produto</legend>
+        <table cellspacing="10">
+            <tr>
+                <td>
+                    <label for="nome">
+                    <span style="color: red;">*</span> Nome: </label>
+                </td>
+                <td>
+                    <input id="nome" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" type="text" name="nome" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="descricao">
+                    <span style="color: red;">*</span> Descrição: </label>
+                </td>
+                <td>
+                    <textarea id="descricao" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" type="text" name="descricao" rows="4" cols="30" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="imagem">
+                    <span style="color: red;">*</span> Imagem: </label>
+                </td>
+                <td>
+                    <input id="imagem" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" type="file" name="picture" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="quantidade">
+                    <span style="color: red;">*</span> Quantidade: </label>
+                </td>
+                <td>
+                    <input id="quantidade" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" type="text" name="quantidade" required> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="preco">
+                    <span style="color: red;">*</span> Preço:</label>
+                </td>
+                <td>
+                    <input id="preco" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" type="text" name="preco" required> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="garantia">Garantia:</label>
+                </td>
+                <td>
+                    <input id="garantia" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" type="text" name="garantia"> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="marca">Marca:</label>
+                </td>
+                <td>
+                    <input id="marca" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" type="text" name="marca"> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="codigo">Código:</label>
+                </td>
+                <td>
+                    <input id="codigo" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" type="text" name="codigo"> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="cor">Cor:</label>
+                </td>
+                <td>
+                <select name="cor">
+                    <option id="cor" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" value="Black"> Preto
+                    <option id="cor" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" value="White"> Branco
+                    <option id="cor" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" value="Red">Vermelho
+                    <option id="cor" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" value="Green"> Verde
+                    <option id="cor" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" value="Blue"> Azul
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="tamanho">Tamanho:</label></td>
+                <td>
+                    <select name="tamanho">
+                        <option id="tamanho" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" value="P"> P
+                        <option id="tamanho" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" value="M"> M
+                        <option id="tamanho" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" value="G"> G
+                        <option id="tamanho" class="mb-1 mt-1 form-control form-control-sm text-center border-0 rounded-lg" value="GG"> GG
+                    </select>
+                </td>
+            </tr>
+        </table>
+        </fieldset>
+            <div class="card-footer border-secondary bg-transparent">
+                <button type="submit" class="btn btn-lg btn-primary font-weight-bold my-3 py-3">Cadastrar</button>
+                <button type="reset" class="btn btn-lg btn-primary font-weight-bold my-3 py-3">Limpar</button>
+            </div>
+      </form>
+    </div>
+    <!--Form End-->
+{% endblock %}

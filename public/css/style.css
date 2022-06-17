@@ -570,9 +570,9 @@ mark,
 .img-thumbnail {
     padding: 0.25rem;
     background-color: #fff;
-    border: 1px solid #dee2e6;
+    border: 1px solid transparent;
     max-width: 100%;
-    height: auto;
+    max-height: 300px;
 }
 
 .figure {
@@ -2093,6 +2093,7 @@ select.form-control:focus::-ms-value {
     padding-left: 0;
 }
 
+/* small */
 .form-control-sm {
     height: calc(1.5em + 0.5rem + 2px);
     padding: 0.25rem 0.5rem;
@@ -2100,6 +2101,7 @@ select.form-control:focus::-ms-value {
     line-height: 1.5;
 }
 
+/* larger */
 .form-control-lg {
     height: calc(1.5em + 1rem + 2px);
     padding: 0.5rem 1rem;
@@ -4649,6 +4651,7 @@ input[type="button"].btn-block {
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 3px 8px rgb(0 0 0 / 0.2);
 }
 
 .card>hr {
@@ -5102,6 +5105,7 @@ a.badge-dark.focus {
 }
 
 .alert {
+    width: 100%;
     position: relative;
     padding: 0.75rem 1.25rem;
     margin-bottom: 1rem;

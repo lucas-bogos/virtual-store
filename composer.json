@@ -6,14 +6,23 @@
             "source\\": "src/"
         },
         "files": [
-            "src/shared/config/database.php"
+            "src/shared/config/database.php",
+            "src/shared/config/smtpServer.php"
         ]
     },
     "authors": [{
         "name": "Lucas Bogos",
         "email": "bogoslucas1@gmail.com"
+    }, {
+        "name": "Aline Soette",
+        "email": "soette.aline@gmail.com"
     }],
     "require": {
-        "phpmailer/phpmailer": "^6.6"
+      "php": "8.1.*",
+      "ext-json": "*",
+      "slim/slim": "^4.9",
+      "slim/twig-view": "^3.3",
+      "slim/psr7": "^1.5",
+      "phpmailer/phpmailer": "^6.6"
     }
 }

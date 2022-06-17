@@ -1,0 +1,30 @@
+{% extends 'template.twig' %}
+{% block content %}
+  <br /><div id="login" class="container-fluid mb-5">
+    <form action="/alteracao-de-senha"
+      method="POST"
+      class="d-flex flex-column align-items-center justify-content-center">
+      <div class="card-header bg-transparent bg-secondary border-0">
+        <h2 class="font-weight-semi-bold text-uppercase mb-3">
+          Alteração de senha
+        </h2>
+      </div>
+      <div class="card-content">
+        <div class="card-content-area">
+          <label for="usuario">Senha</label>
+          <input type="password"
+            name="email"
+            id="usuario"
+            autocomplete="off"
+            class="form-control form-control-sm text-center rounded-lg"
+            placeholder="senha de segurança" />
+        </div>
+      </div><br />
+      <div class="card-footer border-secondary bg-transparent">
+        <input type="submit"
+          value="Alterar senha"
+          class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" />
+      </div>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'template.twig' %}
+{% block content %}
+  <!-- Page Header Start -->
+  <div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center"
+      style="min-height: 200px;">
+      <h1 class="font-weight-semi-bold text-uppercase mb-3">
+        Carrinho
+      </h1>
+      <div class="d-inline-flex">
+        <p class="m-0">
+          <a style="color: #D19C97 !important;" href="/">Home</a>
+        </p>
+        <p class="m-0 px-2">
+          &gt;
+        </p>
+        <p class="m-0">
+          {{ breadcrumb }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Page Header End -->
+  <!-- Cart Start -->
+  <div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+      <div class="col-lg-8 table-responsive mb-5">
+        <table class="table table-bordered text-center mb-0">
+          <thead class="bg-secondary text-dark">
+            <tr>
+              <th>
+                Produtos
+              </th>
+              <th>
+                Preço
+              </th>
+              <th>
+                Quantidade
+              </th>
+              {# <th>Total</th> #}
+              <th>
+                Remover
+              </th>
+            </tr>
+          </thead>
+          <tbody class="align-middle">
+            {% for item in items %}
+              <tr>
+                <td class="d-flex align-items-center">
+                  <img src="{{ item.photo }}"
+                    alt=""
+                    style="width: 50px; padding-right: 10px; margin-right: 20px;" />
+                  <span>{{ item.title }}</span>
+                </td>
+                <td id="price" class="align-middle">
+                  <span>R$</span>
+                  <span id="real">{{ item.price }}</span>
+                </td>
+                <td class="align-middle">
+                  <div id="quantity-control"
+                    class="input-group quantity mx-auto"
+                    style="width: 100px;">
+                    <div id="less" class="input-group-btn">
+                      <button class="btn btn-sm btn-primary btn-minus">
+                        <i class="fa fa-minus"></i>
+                      </button>
+                    </div>
+                    <input id="quantity"
+                      type="text"
+                      class="form-control form-control-sm bg-secondary text-center"
+                      value="1" />
+                    <div id="more" class="input-group-btn">
+                      <button class="btn btn-sm btn-primary btn-plus">
+                        <i class="fa fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </td>
+                {# <td id="total" class="align-middle">$0.00</td> #}
+                {# Remover do carrinho #}
+                <td class="align-middle">
+                  <a class="btn btn-sm btn-primary"
+                    href="/remover/{{ item.id_product }}">
+                    <i class="fa fa-times"></i>
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-4">
+        <form class="mb-5" action="/carrinho">
+          <div class="input-group">
+            <input type="text"
+              class="form-control p-4"
+              placeholder="Aplique seu cupom" />
+            <div class="input-group-append">
+              <button class="btn btn-primary">Aplicar Cupom</button>
+            </div>
+          </div>
+        </form>
+        <form method="POST" action="/carrinho">
+          <div class="card border-secondary mb-5">
+            <div class="card-header bg-secondary border-0">
+              <h4 class="font-weight-semi-bold m-0">
+                Resumo
+              </h4>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-3 pt-1">
+                <h6 class="font-weight-medium">
+                  Subtotal
+                </h6>
+                <h6 id="subtotal" class="font-weight-medium">
+                  R$ <span id="value-real">0.00</span>
+                </h6>
+              </div>
+              <div class="d-flex justify-content-between">
+                <h6 class="font-weight-medium">
+                  Taxa de serviço
+                </h6>
+                <h6 class="font-weight-medium">
+                  R$10
+                </h6>
+              </div>
+            </div>
+            <div class="card-footer border-secondary bg-transparent">
+              <div class="d-flex justify-content-between mt-2">
+                <h5 class="font-weight-bold">
+                  Total
+                </h5>
+                <h5 id="total-pay" class="font-weight-bold">
+                  R$ <span id="real">160</span><input id="real-field"
+                    name="total"
+                    style="display: none;" />
+                </h5>
+              </div>
+              <button type="submit" class="btn btn-block btn-primary my-3 py-3">
+                Efetuar Pagamento
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/js/update-cart-values.js"></script>
+{% endblock %}

@@ -1,1 +1,4 @@
 /vendor
+/src/main/tests.php
+/src/shared/config/database.php
+/src/shared/config/smtpServer.php

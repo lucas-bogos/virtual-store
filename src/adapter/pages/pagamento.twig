@@ -1,0 +1,163 @@
+{% extends 'template.twig' %}
+{% block content %}
+  <!-- Page Header Start -->
+  <div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center"
+      style="min-height: 200px">
+      <h1 class="font-weight-semi-bold text-uppercase mb-3">
+        Pagamento
+      </h1>
+      <div class="d-inline-flex">
+        <p class="m-0">
+          <a style="color: #D19C97 !important;" href="/">Home</a>
+        </p>
+        <p class="m-0 px-2">
+          &gt;
+        </p>
+        <p class="m-0">
+          {{ breadcrumb }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Page Header End -->
+  <!-- Checkout Start -->
+  <div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+    {% for data in address %}
+      <div class="col-lg-8">
+        <div class="mb-4">
+          <h4 class="font-weight-semi-bold mb-4">Endereço de Entrega</h4>
+          <form method="POST" class="row">
+            <div class="col-md-6 form-group">
+              <label>Email</label>
+              <input class="form-control"
+                type="text"
+                placeholder="username@email.com"
+                value="{{ data.user_email }}"
+                name="email"
+                />
+            </div>
+            <div class="col-md-6 form-group">
+              <label>Telefone</label>
+              <input class="form-control"
+                type="text"
+                placeholder="1145678910" 
+                value="{{ data.phone_number }}"
+                name="phone-number"
+                />
+            </div>
+            <div class="col-md-6 form-group">
+              <label>Logradouro</label>
+              <input class="form-control"
+                type="text"
+                placeholder="Rua ou avenida que reside" 
+                value="{{ data.street }}"
+                name="street"
+                />
+            </div>
+            <div class="col-md-6 form-group">
+              <label>Número</label>
+              <input class="form-control"
+                name="street-number"
+                type="text"
+                size="5"
+                placeholder="1000"
+                value="{{ data.street_number }}"
+                />
+            </div>
+            <div class="col-md-6 form-group">
+              <label>Bairro</label>
+              <input class="form-control"
+                name="district"
+                type="text"
+                placeholder="Bairro"
+                value="{{ data.district }}"
+                />
+            </div>
+            <div class="col-md-6 form-group">
+              <label>Cidade</label>
+              <input name="city" class="form-control" type="text" placeholder="São Paulo" value="{{ data.city }}" />
+            </div>
+            <div class="col-md-6 form-group">
+              <label>Estado</label>
+              <input name="state" class="form-control" type="text" placeholder="São Paulo" value="{{ data.state }}" />
+            </div>
+            <div class="col-md-6 form-group">
+              <label>CEP</label>
+              <input name="cep" class="form-control" type="text" placeholder="07000010" size="9" value="{{ data.zip_code }}" />
+            </div>
+            <div class="col-md-6 form-group">
+              <label>RG</label>
+              <input name="rg" class="form-control" type="text" placeholder="50100100-X" size="10" value="{{ data.rg }}" />
+            </div>
+            <div class="col-md-6 form-group">
+              <label>CPF</label>
+              <input name="cpf" class="form-control" type="text" placeholder="501001001-01" size="12" value="{{ data.cpf }}" />
+            </div>
+            <div class="card-footer border-secondary bg-transparent">
+                <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Atualizar</button>
+            </div>
+            </form>
+        </div>
+      </div>
+    {% endfor %}
+    {% if dataForPurchase is empty %}
+    {% else %}
+      <div class="col-lg-4">
+        <div class="card border-secondary mb-5">
+          <div class="card-header bg-secondary border-0">
+            <h4 class="font-weight-semi-bold m-0">Total do pedido</h4>
+          </div>
+            <div class="card-body">
+            <h5 class="font-weight-medium mb-3">Produtos</h5>
+            {% for item in cart %}
+            <div class="d-flex justify-content-between">
+                <p>{{ item.title }}</p>
+                <p>$ {{ item.price }}</p>
+            </div>
+            {% endfor %}
+            <hr class="mt-0" />
+            {% for itemPurchase in dataForPurchase %}
+            <div class="d-flex justify-content-between mb-3 pt-1">
+                <h6 class="font-weight-medium">Subtotal</h6>
+                <h6 class="font-weight-medium">$ {{ itemPurchase.total - 10 }}</h6>
+            </div>
+            <div class="d-flex justify-content-between">
+                <h6 class="font-weight-medium">Taxa de serviço</h6>
+                <h6 class="font-weight-medium">$10</h6>
+            </div>
+            </div>
+            <div class="card-footer border-secondary bg-transparent">
+              <div class="d-flex justify-content-between mt-2">
+                <h5 class="font-weight-bold">Total</h5>
+                <h5 class="font-weight-bold">$ {{ itemPurchase.total }}</h5>
+              </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="card border-secondary mb-5">
+          <div class="card-header bg-secondary border-0">
+            <h4 class="font-weight-semi-bold m-0">Pagamento</h4>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <div class="custom-control custom-radio">
+                <input type="radio"
+                  class="custom-control-input"
+                  name="payment"
+                  id="paypal" 
+                  required />
+                <label class="custom-control-label" for="paypal">Paypal</label>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer border-secondary bg-transparent">
+            <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Fechar pedido</button>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    </div>
+  </div>
+{% endblock %}

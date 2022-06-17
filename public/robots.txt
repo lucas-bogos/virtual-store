@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /entrar
 Disallow: /404
 Disallow: /assets/**/*
+Disallow: /?search=

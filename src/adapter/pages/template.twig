@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    {{ include('partials/head.twig') }}
+  </head>
+  <body>
+    <div class="root">
+      {{ include('partials/menu.twig') }}
+      <main>
+        {% block content %}
+
+        {% endblock %}
+      </main>
+      {{ include('partials/footer.twig') }}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

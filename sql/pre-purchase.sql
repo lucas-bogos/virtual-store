@@ -1,0 +1,11 @@
+DROP TABLE pre_purchase;
+
+CREATE TABLE pre_purchase (
+    id_pre_purchase INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    id_user INT UNSIGNED,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    coupon_code VARCHAR(150),
+    total FLOAT,
+    FOREIGN KEY (id_user) REFERENCES user(id_user)
+);

@@ -1,0 +1,35 @@
+<!-- Navbar Start -->
+<div class="container-fluid">
+  <div class="row border-top">
+    <div class="col-lg-12 px-0">
+      <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <div class="navbar-nav mr-auto py-0">
+            <a href="/" class="nav-item nav-link">Visitar loja</a>
+            <a href="/admin/novo-produto" class="nav-item nav-link">Cadastrar produto</a>
+            <a href="/admin/pedidos" class="nav-item nav-link">Ver Pedidos</a>
+          </div>
+          <div class="navbar-nav ml-auto py-0 d-flex align-items-center">
+            {% if session.user_admin_logged != null %}
+                <span class="text-info" style="font-size: 14px;">
+                    <a href="#conta" class="text-decoration-none nav-item nav-link">
+                        <img src="/img/user.png" width="30" />&nbsp;&nbsp;{{ session.user_admin_logged }}
+                    </a>
+                </span>
+            {% endif %}
+            {% if session.user_admin_logged != null %}
+                <a href="/logout" class="nav-item nav-link">Deslogar</a>
+            {% else %}
+                <a href="/login-admin" class="nav-item nav-link">Entrar</a>
+            {% endif %}
+          </div>
+        </div>
+    </div>
+    </nav>
+  </div>
+</div>
+</div>
+<!-- Navbar End -->

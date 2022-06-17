@@ -1,0 +1,279 @@
+{% extends 'template.twig' %}
+{% block content %}
+  <br />
+  <div class="d-flex flex-column justify-content-center align-items-center px-5">
+    <div class="card-header bg-transparent bg-secondary border-0">
+      <h2 class="font-weight-semi-bold text-uppercase mb-3">
+        Cadastro
+      </h2>
+    </div>
+    <div class="container-fluid mb-5 d-flex justify-content-center align-items-center">
+      <form action="/cadastro" method="post" class="">
+        <!-- DADOS PESSOAIS -->
+        <fieldset>
+          <legend>
+            Dados Pessoais
+          </legend>
+          <table cellspacing="10">
+            <tr>
+              <div class="card-content">
+                <td>
+                  <label for="name">
+                    <span style="color: red;">*</span> Nome:
+                  </label>
+                </td>
+                <td align="left">
+                  <input id="name"
+                    type="text"
+                    name="name"
+                    class="form-control form-control-sm text-center rounded-lg" />
+                </td>
+
+                <td>
+                  <label for="middle-name">
+                    <span style="color: red;">*</span> Sobrenome:
+                  </label>
+                </td>
+                <td align="left">
+                  <input id="middle-name"
+                    type="text"
+                    name="middle-name"
+                    class="form-control form-control-sm text-center rounded-lg" />
+                </td>
+              </div>
+            </tr>
+            <tr>
+              <td>
+                <label for="phone-number">
+                  <span style="color: red;">*</span> Telefone:
+                </label>
+              </td>
+              <td align="left">
+                <input id="phone-number"
+                  type="text"
+                  name="phone-number"
+                  size="13"
+                  maxlength="13"
+                  class="form-control form-control-sm text-center rounded-lg" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label><span style="color: red;">*</span> Nascimento:</label>
+              </td>
+              <td align="left">
+                <input type="text"
+                  name="day"
+                  size="2"
+                  maxlength="2"
+                  placeholder="dd"
+                  class="text-center border-0 rounded-lg" />
+                <input type="text"
+                  name="month"
+                  size="2"
+                  maxlength="2"
+                  placeholder="mm"
+                  class="text-center border-0 rounded-lg" />
+                <input type="text"
+                  name="year"
+                  size="4"
+                  maxlength="4"
+                  placeholder="aaaa"
+                  class="text-center border-0 rounded-lg" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="rg">RG:</label>
+              </td>
+              <td align="left">
+                <input id="rg"
+                  type="text"
+                  name="rg"
+                  size="13"
+                  maxlength="13"
+                  class="form-control form-control-sm text-center rounded-lg" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>CPF:</label>
+              </td>
+              <td align="left">
+                <input type="text"
+                  name="cpf"
+                  size="9"
+                  maxlength="9"
+                  class="border-0 text-center rounded-lg" />-<input type="text"
+                  name="cpf2"
+                  size="2"
+                  maxlength="2"
+                  class="border-0 text-center rounded-lg" />
+                <span id="errorCPF" style="color: #D14C48; display: none;">
+                  CPF está inválido
+                </span>
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+        <br />
+        <!-- ENDEREÇO -->
+        <fieldset>
+          <legend>
+            Endereço de Entrega
+          </legend>
+          <table cellspacing="10">
+            <tr>
+              <td>
+                <label for="street">Rua:</label>
+              </td>
+              <td align="left">
+                <input type="text"
+                  id="street"
+                  name="street"
+                  class="form-control form-control-sm text-center rounded-lg" />
+              </td>
+              <td>
+                <label for="street-number">Numero:</label>
+              </td>
+              <td align="left">
+                <input id="street-number"
+                  type="text"
+                  name="street-number"
+                  size="4"
+                  class="form-control form-control-sm text-center rounded-lg" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="district">Bairro:</label>
+              </td>
+              <td align="left">
+                <input id="district"
+                  type="text"
+                  name="district"
+                  class="form-control form-control-sm text-center rounded-lg" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="state">Estado:</label>
+              </td>
+              <td align="left">
+                <select id="state"
+                  name="state"
+                  class="form-control form-control-sm border-0 text-center rounded-lg">
+                  <option selected>
+                    Selecione um estado
+                  </option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="city">Cidade:</label>
+              </td>
+              <td align="left">
+                <input id="city"
+                  type="text"
+                  name="city"
+                  class="form-control form-control-sm text-center rounded-lg" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="cep1">CEP:</label>
+              </td>
+              <td align="left">
+                <input id="cep1"
+                  type="text"
+                  name="cep1"
+                  size="5"
+                  maxlength="5"
+                  class="border-0 text-center rounded-lg" />-<input type="text"
+                  name="cep2"
+                  size="3"
+                  maxlength="3"
+                  class="border-0 text-center rounded-lg" />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+        <br />
+        <p style="font-size: 12px;">
+          O endereço de entrega poderá ser alterado futuramente.
+        </p>
+        <br />
+        <!-- DADOS DE LOGIN -->
+        <fieldset>
+          <legend>
+            Credenciais para seu perfil
+          </legend>
+          <table cellspacing="10">
+            <tr>
+              <td>
+                <label for="image">Imagem de perfil:</label>
+              </td>
+              <td>
+                <input id="image"
+                  type="file"
+                  name="image"
+                  class="form-control form-control-sm text-center rounded-lg border-0 bg-transparent" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="email">
+                  <span style="color: red;">*</span> E-mail:
+                </label>
+              </td>
+              <td align="left">
+                <input id="email"
+                  type="text"
+                  name="email"
+                  class="form-control form-control-sm text-center rounded-lg" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="pass">
+                  <span style="color: red;">*</span> Senha:
+                </label>
+              </td>
+              <td align="left">
+                <input id="pass"
+                  type="password"
+                  name="pass"
+                  class="form-control form-control-sm text-center rounded-lg" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="pass-confirm">
+                  <span style="color: red;">*</span> Confirme a senha:
+                </label>
+              </td>
+              <td align="left">
+                <input id="pass-confirm"
+                  type="password"
+                  name="pass-confirm"
+                  class="form-control form-control-sm text-center rounded-lg" />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+        <br />
+        <div class="card-footer border-secondary bg-transparent">
+          <input type="submit"
+            class="btn btn-lg btn-primary font-weight-bold my-3 py-3" />
+          <input type="reset"
+            value="Limpar"
+            class="btn btn-lg btn-primary font-weight-bold my-3 py-3" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <script type="module" src="/js/fetch-api-states.js"></script>
+  <script type="module" src="/js/fill-inputs-address.js"></script>
+  <script type="module" src="/js/validator-cpf.js"></script>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'template.twig' %}
+{% block content %}
+  {% if sent == true %}
+    <div class="d-flex justify-content-center align-items-center">
+      <span class="d-flex justify-content-center align-items-center alert alert-success">
+        Mensagem enviada com sucesso!
+      </span>
+    </div>
+  {% endif %}
+  <!-- Page Header Start -->
+  <div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center"
+      style="min-height: 200px;">
+      <h1 class="font-weight-semi-bold text-uppercase mb-3">
+        Contato
+      </h1>
+      <div class="d-inline-flex">
+        <p class="m-0">
+          <a style="color: #D19C97 !important;" href="/">Home</a>
+        </p>
+        <p class="m-0 px-2">
+          &gt;
+        </p>
+        <p class="m-0">
+          {{ breadcrumb }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Page Header End -->
+  <!-- Contact Start -->
+  <div class="container-fluid pt-5">
+    <div class="text-center mb-4">
+      <h2 class="section-title px-5">
+        <span class="px-2">Envie uma mensagem</span>
+      </h2>
+    </div>
+    <div class="row px-xl-5">
+      <div class="col-lg-7 mb-5">
+        <div class="contact-form">
+          <div id="success"></div>
+          <form method="POST" action="/contato">
+            <div class="control-group">
+              <input name="name"
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Seu nome ou apelido"
+                required="required"
+                data-validation-required-message="Please enter your name" />
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+              <input name="email"
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="username@example.com"
+                required="required"
+                data-validation-required-message="Please enter your email" />
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+              <input name="subject"
+                type="text"
+                class="form-control"
+                id="subject"
+                placeholder="Digite um título"
+                required="required"
+                data-validation-required-message="Este campo é requerido" />
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+              <textarea name="message"
+                class="form-control"
+                rows="6"
+                id="message"
+                placeholder="Informe uma mensagem"
+                required="required"
+                data-validation-required-message="Este campo é requerido"></textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+            <div>
+              <button class="btn btn-primary py-2 px-4"
+                type="submit"
+                id="sendMessageButton">
+                Enviar Mensagem
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-5 mb-5">
+        <h5 class="font-weight-semi-bold mb-3">
+          Compre com quem entende.
+        </h5>
+        <p>
+          Somos uma startup de sucesso, em que temos como núcleo ajudar as
+          pessoas a se sentir melhor através da moda.
+        </p>
+        <div class="d-flex flex-column mb-3">
+          <h5 class="font-weight-semi-bold mb-3">
+            Visite nossa loja
+          </h5>
+          <p class="mb-2">
+            <i class="fa fa-map-marker-alt text-primary mr-3"></i>123
+            Logradouro, Osasco, BR
+          </p>
+          <p class="mb-2">
+            <i class="fa fa-envelope text-primary mr-3"></i>info@virtualstore.com
+          </p>
+          <p class="mb-2">
+            <i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

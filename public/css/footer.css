@@ -6,11 +6,11 @@
     min-height: 200px;
 }
 
-.footer>p {
+.footer > p {
     margin: 0 1em;
     color: #aaa;
 }
 
-.footer p>a:hover {
+.footer p > a:hover {
     color: #fff;
 }

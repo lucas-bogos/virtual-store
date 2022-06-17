@@ -1,0 +1,54 @@
+{% extends 'template.twig' %}
+{% block content %}
+  {% if logged == 'true' %}
+    <div class="d-flex justify-content-center align-items-center">
+      <span class="d-flex justify-content-center align-items-center alert alert-success">
+        Usuário está logado!
+      </span>
+    </div>
+  {% endif %}
+  {% if isValid == 'false' %}
+    <div class="d-flex justify-content-center align-items-center">
+      <span class="d-flex justify-content-center align-items-center alert alert-danger">
+        Não foi possível fazer login, tente novamente!
+      </span>
+    </div>
+  {% endif %}
+  <br /><div id="login" class="container-fluid mb-5">
+    <form action="/login"
+      method="POST"
+      class="d-flex flex-column align-items-center justify-content-center">
+      <div class="card-header bg-transparent bg-secondary border-0">
+        <h2 class="font-weight-semi-bold text-uppercase mb-3">
+          Login
+        </h2>
+      </div>
+      <div class="card-content">
+        <div class="card-content-area">
+          <label for="usuario">Email</label>
+          <input type="email"
+            name="email"
+            id="usuario"
+            autocomplete="off"
+            class="form-control form-control-sm text-center rounded-lg"
+            placeholder="usuario@exemplo.com" />
+        </div>
+        <div class="card-content-area">
+          <label for="password">Senha</label>
+          <input type="password"
+            name="password"
+            id="password"
+            autocomplete="off"
+            class="form-control form-control-sm text-center rounded-lg"
+            placeholder="senha de segurança" />
+        </div>
+      </div><br />
+      <div class="card-footer border-secondary bg-transparent">
+        <input type="submit"
+          value="Entrar"
+          class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" />
+        <a href="/esqueci-senha" class="recuperar_senha">Esqueceu a senha?</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

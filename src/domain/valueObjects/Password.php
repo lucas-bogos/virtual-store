@@ -8,14 +8,15 @@ use DomainException;
 
 final class Password
 {
-  private string $password;
+  private static string $password;
+  private static array $options = ['cost' => 12];
 
   public function __construct(string $password)
   {
     if (mb_strlen($password) < 8) {
-      throw new DomainException("Password must be larger or equal than 8 chars");
+        throw new DomainException("Password must be larger or equal than 8 chars");
     }
-    $this->password = $password;
+    self::$password = password_hash($password, PASSWORD_BCRYPT, self::$options);
   }
 
   public static function createFromHashedPassword(string $password): Password
@@ -26,8 +27,13 @@ final class Password
     return $self;
   }
 
-  public function checkValidity(string $password): bool
+  public static function checkValidity(string $password, string $hash): bool
   {
-    return password_verify($password, $this->password);
+    return password_verify($password, $hash);
+  }
+
+  public function __toString(): string
+  {
+      return self::$password;
   }
 }

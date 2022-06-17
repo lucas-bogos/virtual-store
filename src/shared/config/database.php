@@ -1,9 +1,11 @@
 <?php
 
-define("DBCONFIG", [
-  "driver" => getenv("DRIVER"),
-  "dbhost" => getenv("DBHOST"),
-  "dbname" => getenv("DBNAME"),
-  "dbusr" => getenv("DBUSER"),
-  "dbpass" => getenv("DBPASS")
+declare(strict_types=1);
+
+define('DBCONFIG', [
+    'driver' => 'mysql',
+    'dbhost' => 'localhost',
+    'dbname' => 'virtual_store',
+    'dbusr' => 'lucas',
+    'dbpass' => 'Developer1727',
 ]);

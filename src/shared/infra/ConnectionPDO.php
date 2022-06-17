@@ -13,14 +13,13 @@ final class ConnectionPDO
   public static function init(): PDO
   {
     try {
-      $pdo = new PDO(DBCONFIG["driver"] . ":host=" . DBCONFIG["dbhost"] . ";dbname=" . DBCONFIG["dbname"], DBCONFIG["dbusr"], DBCONFIG["dbpass"]);
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo "Banco de dados conectado!";
-      return $pdo;
+        $pdo = new PDO(DBCONFIG["driver"] . ":host=" . DBCONFIG["dbhost"] . ";dbname=" . DBCONFIG["dbname"], DBCONFIG["dbusr"], DBCONFIG["dbpass"]);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $pdo;
     } catch (PDOException $error) {
-      die("Erro de conexão do PDO: " . $error->getMessage());
+        die("Erro de conexão do PDO: " . $error->getMessage() . "\n");
     } catch (Exception $error) {
-      die("Ocorreu um erro: " . $error->getMessage());
+        die("Ocorreu um erro: " . $error->getMessage() . "\n");
     }
   }
 }
