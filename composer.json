@@ -11,11 +11,17 @@
         ]
     },
     "authors": [{
-        "name": "Lucas Bogos",
+        "name": "Lucas Bogos dos Santos",
         "email": "bogoslucas1@gmail.com"
     }, {
-        "name": "Aline Soette",
+        "name": "Aline Soette da Silva",
         "email": "soette.aline@gmail.com"
+    }, {
+        "name": "Sara Mirian dos Santos",
+        "email": "sara.santos14@fatec.sp.gov.br"
+    }, {
+        "name": "Hudson Vinicius Alves de Melo",
+        "email": "hudson.melo@fatec.sp.gov.br"
     }],
     "require": {
       "php": "8.1.*",
